@@ -107,7 +107,7 @@ export default function Home() {
               <Dna className="h-10 w-10 text-batik-gold" />
             </motion.div>
             <h1 className="text-5xl md:text-7xl font-batik font-bold text-white drop-shadow-lg">
-              Biodiversitas
+              Biodiversity
               <span className="block text-3xl md:text-4xl font-tropical font-normal text-warm-cream/90 mt-2">
                 Indonesia
               </span>
@@ -131,9 +131,8 @@ export default function Home() {
             {
               id: "1",
               icon: Dna,
-              title: "Analisis Filogenetik",
-              subtitle: "Phylogenetic Analysis",
-              description: "Analisis hubungan evolusioner spesies",
+              title: "Phylogenetic Analysis",
+              description: "Evolutionary relationships among species analysis",
               href: "#analysis",
               gradient: "from-batik-gold to-sunset-orange",
               iconBg: "bg-amber-400/20",
@@ -141,9 +140,9 @@ export default function Home() {
             {
               id: "2",
               icon: MapPin,
-              title: "Peta Biodiversitas",
-              subtitle: "Biodiversity Map",
-              description: "Eksplorasi distribusi spesies di Nusantara",
+              title: "Biodiversity Map",
+              description:
+                "Explore the distribution of species across the archipelago",
               href: "/map",
               gradient: "from-ocean-blue to-deep-teal",
               iconBg: "bg-blue-400/20",
@@ -151,23 +150,32 @@ export default function Home() {
             {
               id: "3",
               icon: Leaf,
-              title: "Database Spesies",
-              subtitle: "Species Database",
-              description: "Koleksi data spesies endemik Indonesia",
+              title: "Species Database",
+              description: "Collection of endemic species data in Indonesia",
               href: "#database",
               gradient: "from-tropical-green to-batik-brown",
               iconBg: "bg-green-400/20",
             },
           ].map((item, index) => (
             <motion.div
-              key={item.id+index}
-              whileHover={item.id === "2" ? { y: -8, scale: 1.02  } : {}}
-              whileTap={{ scale: 0.98 }}
+              key={item.id + index}
+              whileHover={item.id === "2" ? { y: -8, scale: 1.02 } : {}}
+              whileTap={item.id === "2" ? { scale: 0.98 } : {}}
               transition={{ type: "spring", stiffness: 300 }}
               className="group"
             >
-              <Link href={item.href} className={`${item.id !== "2" ? "cursor-default" : ""}`}>
-                <Card className="glass-morphism border-white/30 hover:border-white/50 transition-all duration-500 overflow-hidden">
+              <Link
+                href={item.href}
+                className={`${item.id !== "2" ? "cursor-default" : ""}`}
+                onClick={(e) => {
+                  if (item.id !== "2") {
+                    e.preventDefault();
+                  }
+                }}
+                aria-disabled={item.id !== "2"}
+                tabIndex={item.id !== "2" ? -1 : undefined}
+              >
+                <Card className="glass-morphism border-white/30 h-full hover:border-white/50 transition-all duration-500 overflow-hidden">
                   <CardContent className="p-8 text-center">
                     <motion.div
                       className={`inline-flex items-center justify-center w-16 h-16 ${item.iconBg} backdrop-blur-sm rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}
@@ -179,9 +187,7 @@ export default function Home() {
                     <h3 className="text-xl font-batik font-semibold text-white mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-sm font-tropical text-white/70 mb-3">
-                      {item.subtitle}
-                    </p>
+
                     <p className="text-white/80 font-tropical leading-relaxed">
                       {item.description}
                     </p>
@@ -222,10 +228,10 @@ export default function Home() {
                       >
                         <Leaf className="h-8 w-8" />
                       </motion.div>
-                      Pohon Filogenetik: {speciesName}
+                      Phylogenetic Tree: {speciesName}
                     </CardTitle>
                     <CardDescription className="text-white/90 font-tropical text-lg mt-2">
-                      Visualisasi hubungan genetik antar spesies
+                      Visualization of genetic relationships between species
                     </CardDescription>
                   </motion.div>
                 </CardHeader>

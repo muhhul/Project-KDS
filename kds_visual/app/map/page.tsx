@@ -56,12 +56,10 @@ export default function MapPage() {
 
   return (
     <main className="min-h-screen relative overflow-hidden">
-      {/* Ocean-inspired background */}
       <div className="absolute inset-0 ocean-gradient">
         <div className="absolute inset-0 batik-pattern opacity-20" />
       </div>
 
-      {/* Floating ocean elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-16 right-24 w-28 h-28 opacity-25"
@@ -86,7 +84,6 @@ export default function MapPage() {
         initial="hidden"
         animate="visible"
       >
-        {/* Header with Indonesian navigation */}
         <motion.div
           variants={itemVariants}
           className="flex items-center justify-between mb-10"
@@ -103,7 +100,7 @@ export default function MapPage() {
                   className="glass-morphism border-white/40 hover:border-white/60 text-white hover:bg-white/10 transition-all duration-300 font-tropical"
                 >
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Kembali
+                  Back
                 </Button>
               </motion.div>
             </Link>
@@ -113,7 +110,7 @@ export default function MapPage() {
               transition={{ delay: 0.3 }}
             >
               <h1 className="text-4xl md:text-5xl font-batik font-bold text-white drop-shadow-lg">
-                Peta Biodiversitas
+                Biodiversity Map
                 <span className="block text-xl md:text-2xl font-tropical font-normal text-white/80 mt-1">
                   Nusantara
                 </span>
@@ -126,17 +123,19 @@ export default function MapPage() {
             whileHover={{ scale: 1.05 }}
           >
             <Compass className="h-5 w-5 text-batik-gold animate-wave" />
-            <span className="text-white font-tropical">Jelajahi Kepulauan</span>
+            <span className="text-white font-tropical">
+              Explore the islands
+            </span>
           </motion.div>
         </motion.div>
         <div className="w-full flex items-center justify-center">
           <motion.p
             variants={itemVariants}
-            className="text-white/90 mb-10 max-w-4xl leading-relaxed text-center text-lg font-tropical"
+            className="text-white/90 mb-10 max-w-4xl leading-relaxed text-center text-sm md:text-lg font-tropical"
           >
-            Temukan distribusi geografis spesies-spesies unik Indonesia di
-            seluruh kepulauan. Klik pada penanda untuk menjelajahi informasi
-            detail dan hubungan filogenetik.
+            Discover the geographic distribution of Indonesia's unique species
+            across the archipelago. Click on markers to explore detailed
+            information and phylogenetic relationships.
           </motion.p>
         </div>
 
@@ -152,16 +151,16 @@ export default function MapPage() {
               >
                 <CardTitle className="text-3xl font-batik flex items-center gap-3">
                   <motion.div
-                    className="p-2 bg-white/20 rounded-full"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
+                  className="p-2 bg-white/20 rounded-full"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
                   >
-                    <MapPin className="h-8 w-8" />
+                  <MapPin className="h-8 w-8" />
                   </motion.div>
-                  Peta Interaktif Biodiversitas
+                  Interactive Biodiversity Map
                 </CardTitle>
                 <CardDescription className="text-white/90 font-tropical text-lg mt-2">
-                  Eksplorasi distribusi spesies di seluruh kepulauan Indonesia
+                  Explore the distribution of species across the Indonesian archipelago
                 </CardDescription>
               </motion.div>
             </CardHeader>
@@ -175,57 +174,57 @@ export default function MapPage() {
           variants={itemVariants}
           className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {[
+            {[
             {
               icon: Island,
-              title: "Navigasi Interaktif",
-              desc: "Zoom dan geser untuk menjelajahi berbagai wilayah",
+              title: "Interactive Navigation",
+              desc: "Zoom and pan to explore different regions",
               gradient: "from-blue-400 to-green-500",
             },
             {
               icon: Dna,
-              title: "Detail Spesies",
-              desc: "Klik penanda untuk informasi spesies lengkap",
+              title: "Species Details",
+              desc: "Click markers for complete species information",
               gradient: "from-amber-500 to-amber-700",
             },
             {
               icon: Mountain,
-              title: "Pohon Filogenetik",
-              desc: "Lihat hubungan evolusioner antar spesies",
+              title: "Phylogenetic Tree",
+              desc: "View evolutionary relationships between species",
               gradient: "from-green-400 to-amber-800",
             },
             {
               icon: Waves,
-              title: "Data Geografis",
-              desc: "Pemetaan lokasi akurat dari database GBIF",
+              title: "Geographic Data",
+              desc: "Accurate location mapping from the GBIF database",
               gradient: "from-pink-500 to-red-300",
             },
-          ].map((item, index) => (
+            ].map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ y: -8, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="group"
             >
-              <Card className="glass-morphism border-white/30 hover:border-white/50 shadow-lg hover:shadow-tropical transition-all duration-500 h-full">
-                <CardContent className="p-6 text-center h-full flex flex-col justify-center">
-                  <motion.div
-                    className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    <item.icon className="h-7 w-7 text-white" />
-                  </motion.div>
-                  <h3 className="font-batik font-semibold text-white mb-3 text-lg">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-white/80 font-tropical leading-relaxed">
-                    {item.desc}
-                  </p>
-                </CardContent>
+              <Card className="glass-morphism p-0 border-white/30 hover:border-white/50 shadow-lg hover:shadow-tropical transition-all duration-500 h-full">
+              <CardContent className="p-6 text-center h-full flex flex-col justify-center">
+                <motion.div
+                className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${item.gradient} rounded-full group-hover:scale-110 transition-transform duration-300`}
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.8 }}
+                >
+                <item.icon className="h-7 w-7 text-white" />
+                </motion.div>
+                <h3 className="font-batik font-semibold text-white mb-3 text-xl">
+                {item.title}
+                </h3>
+                <p className="text-base text-white/80 font-tropical leading-relaxed">
+                {item.desc}
+                </p>
+              </CardContent>
               </Card>
             </motion.div>
-          ))}
+            ))}
         </motion.div>
 
         {/* Cultural footer */}

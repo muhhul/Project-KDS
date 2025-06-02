@@ -27,18 +27,18 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
 
     // Validate input
     if (!species.trim()) {
-      setError("Masukkan nama spesies yang valid.")
+      setError("Please enter a valid species name.")
       return
     }
 
     if (species.trim().length < 2) {
-      setError("Nama spesies harus minimal 2 karakter.")
+      setError("Species name must be at least 2 characters.")
       return
     }
 
     setIsLoading(true)
 
-    // Simulate processing time with Indonesian flair
+    // Simulate processing time
     setTimeout(() => {
       setIsLoading(false)
       onAnalysisComplete(species.trim())
@@ -77,21 +77,21 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                 >
                   <Search className="h-6 w-6 text-batik-gold" />
                 </motion.div>
-                <h2 className="text-2xl font-batik font-bold text-white">Analisis Spesies</h2>
+                <h2 className="text-2xl font-batik font-bold text-white">Species Analysis</h2>
               </motion.div>
-              <p className="text-white/80 font-tropical">Masukkan nama ilmiah spesies untuk analisis filogenetik</p>
+              <p className="text-white/80 font-tropical">Enter the scientific name of the species for phylogenetic analysis</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-4">
                 <Label className="text-lg font-batik font-semibold text-white flex items-center gap-2">
                   <Leaf className="h-5 w-5 text-tropical-green" />
-                  Nama Spesies
+                  Species Name
                 </Label>
                 <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Input
                     type="text"
-                    placeholder="contoh: Panthera tigris sumatrae"
+                    placeholder="e.g.: Panthera tigris sumatrae"
                     value={species}
                     onChange={(e) => setSpecies(e.target.value)}
                     className="w-full h-14 text-lg border-2 border-white/30 focus:border-batik-gold bg-white/10 backdrop-blur-sm rounded-xl text-white placeholder:text-white/60 font-tropical transition-all duration-300 focus:shadow-glow"
@@ -99,7 +99,7 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                   />
                 </motion.div>
                 <p className="text-white/70 font-tropical text-sm">
-                  Masukkan nama ilmiah spesies yang ingin Anda analisis.
+                  Enter the scientific name of the species you want to analyze.
                 </p>
                 {error && (
                   <motion.p
@@ -129,12 +129,12 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-3 h-6 w-6 animate-spin" />
-                          Menganalisis...
+                          Analyzing...
                         </>
                       ) : (
                         <>
                           <Sparkles className="mr-3 h-6 w-6" />
-                          Analisis Spesies
+                          Analyze Species
                         </>
                       )}
                     </div>
