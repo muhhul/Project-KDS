@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, ZoomIn, ZoomOut, MapPin } from "lucide-react";
@@ -10,15 +10,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import PhylogeneticTree from "./phylogenetic-tree";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
-
-const INDONESIA_GEO_URL = "/indonesia-provinces.json";
-
+import Map, { Source, Layer, MapRef } from 'react-map-gl/maplibre';
+import { GeoJSONFeature } from "maplibre-gl";
+import INDONESIA_GEO from "@/public/indonesia-provinces.json";
 // Mock data for species per province
 const provinceSpeciesData: Record<string, any> = {
   ACEH: {
@@ -110,33 +104,34 @@ const getProvinceColor = (provinceIdentifier: string) => {
   return provinceColorsPalette[hash % provinceColorsPalette.length];
 };
 
-const MIN_CENTER_LON = 100;
-const MAX_CENTER_LON = 135;
-const MIN_CENTER_LAT = -9;
-const MAX_CENTER_LAT = 3;
+// Initial viewport settings for Indonesia
+const INITIAL_VIEW_STATE = {
+  longitude: 118,
+  latitude: -2.5,
+  zoom: 4,
+  pitch: 0,
+  bearing: 0,
+};
+
+// Map bounds for Indonesia
+const BOUNDS = {
+  minLongitude: 95,
+  maxLongitude: 141,
+  minLatitude: -11,
+  maxLatitude: 6,
+};
 
 export default function BiodiversityMap() {
-  const [position, setPosition] = useState({
-    coordinates: [118, -2.5] as [number, number],
-    zoom: 1,
-  });
+  const [viewState, setViewState] = useState(INITIAL_VIEW_STATE);
   const [selectedProvinceInfo, setSelectedProvinceInfo] = useState<any>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hoveredProvinceImage, setHoveredProvinceImage] = useState<
-    string | null
-  >(null);
+  const [hoveredProvinceImage, setHoveredProvinceImage] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isPhylogeneticTreeOpen, setIsPhylogeneticTreeOpen] = useState(false);
-  const mapRef = useRef<HTMLDivElement>(null);
-  // const [provinceTooltipText, setProvinceTooltipText] = useState<string>("");
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [geoData, setGeoData] = useState<any>(INDONESIA_GEO);
+  const [hoveredFeature, setHoveredFeature] = useState<GeoJSONFeature | null>(null);
+  
+  const mapRef = useRef<MapRef>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -152,75 +147,111 @@ export default function BiodiversityMap() {
     };
   }, [hoveredProvinceImage, isDialogOpen]);
 
-  const handleProvinceClick = (geo: any) => {
-    const provinceName = geo.properties.provinsi;
-    const speciesData =
-      provinceSpeciesData[provinceName?.toUpperCase()] ||
-      provinceSpeciesData["DEFAULT"];
+  // Create dynamic layer style based on province data
+  const createLayerStyle = useCallback(() => {
+    if (!geoData) return null;
 
-    if (speciesData) {
-      setSelectedProvinceInfo({
-        ...speciesData,
-        provinceName: provinceName || "Unknown Province",
-      });
-      setIsDialogOpen(true);
-    } else {
-      setSelectedProvinceInfo({
-        name: provinceName || "Unknown Province",
-        scientificName: "N/A",
-        description:
-          "Detailed biodiversity information for this province is not yet available.",
-        imageUrl: provinceSpeciesData["DEFAULT"].imageUrl,
-        provinceName: provinceName || "Unknown Province",
-      });
-      setIsDialogOpen(true);
-    }
-    setHoveredProvinceImage(null);
-  };
+    const colorExpression: any[] = ['case'];
+    
+    geoData.features?.forEach((feature: any) => {
+      const provinceName = feature.properties.provinsi;
+      const color = getProvinceColor(provinceName);
+      colorExpression.push(['==', ['get', 'provinsi'], provinceName], color);
+    });
+    
+    // Default color
+    colorExpression.push(provinceColorsPalette[0]);
 
-  const handleProvinceMouseEnter = (geo: any) => {
-    if (!isDialogOpen) {
-      const provinceName = geo.properties.provinsi;
-      // setProvinceTooltipText(provinceName || "Unknown Province");
+    return {
+      id: 'provinces-fill',
+      type: 'fill' as const,
+      paint: {
+        'fill-color': colorExpression,
+        'fill-opacity': 0.8,
+        'fill-outline-color': '#000000',
+      },
+    };
+  }, [geoData]);
+
+  const createHoverLayerStyle = () => ({
+    id: 'provinces-hover',
+    type: 'fill' as const,
+    paint: {
+      'fill-color': '#f0f0f0',
+      'fill-opacity': 0.9,
+    },
+    filter: hoveredFeature ? ['==', ['get', 'provinsi'], hoveredFeature.properties?.provinsi] : ['==', ['get', 'provinsi'], ''],
+  });
+
+  const handleClick = useCallback((event: any) => {
+    const features = event.features;
+    if (features && features.length > 0) {
+      const feature = features[0];
+      const provinceName = feature.properties?.provinsi;
       const speciesData =
         provinceSpeciesData[provinceName?.toUpperCase()] ||
         provinceSpeciesData["DEFAULT"];
+
+      if (speciesData) {
+        setSelectedProvinceInfo({
+          ...speciesData,
+          provinceName: provinceName || "Unknown Province",
+        });
+        setIsDialogOpen(true);
+      } else {
+        setSelectedProvinceInfo({
+          name: provinceName || "Unknown Province",
+          scientificName: "N/A",
+          description:
+            "Detailed biodiversity information for this province is not yet available.",
+          imageUrl: provinceSpeciesData["DEFAULT"].imageUrl,
+          provinceName: provinceName || "Unknown Province",
+        });
+        setIsDialogOpen(true);
+      }
+      setHoveredProvinceImage(null);
+    }
+  }, []);
+
+  const handleMouseMove = useCallback((event: any) => {
+    const features = event.features;
+    if (features && features.length > 0 && !isDialogOpen) {
+      const feature = features[0];
+      setHoveredFeature(feature);
+      
+      const provinceName = feature.properties?.provinsi;
+      const speciesData =
+        provinceSpeciesData[provinceName?.toUpperCase()] ||
+        provinceSpeciesData["DEFAULT"];
+      
       if (speciesData && speciesData.imageUrl) {
         setHoveredProvinceImage(speciesData.imageUrl);
       }
+    } else {
+      setHoveredFeature(null);
+      setHoveredProvinceImage(null);
     }
-  };
+  }, [isDialogOpen]);
 
-  const handleProvinceMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
+    setHoveredFeature(null);
     setHoveredProvinceImage(null);
-    // setProvinceTooltipText("");
-  };
+  }, []);
 
   const handleViewSpeciesTree = () => {
     setIsPhylogeneticTreeOpen(!isPhylogeneticTreeOpen);
   };
 
   const handleZoomIn = () => {
-    if (position.zoom >= 5) return;
-    setPosition((pos) => ({ ...pos, zoom: pos.zoom * 1.3 }));
+    if (mapRef.current) {
+      mapRef.current.zoomIn();
+    }
   };
 
   const handleZoomOut = () => {
-    if (position.zoom <= 0.6) return;
-    setPosition((pos) => ({ ...pos, zoom: Math.max(pos.zoom / 1.4, 0.6) }));
-  };
-
-  const handleMoveEnd = (newPosition: {
-    coordinates: [number, number];
-    zoom: number;
-  }) => {
-    let [lon, lat] = newPosition.coordinates;
-    lon = Math.max(MIN_CENTER_LON, Math.min(lon, MAX_CENTER_LON));
-    lat = Math.max(MIN_CENTER_LAT, Math.min(lat, MAX_CENTER_LAT));
-    setPosition({
-      coordinates: [lon, lat] as [number, number],
-      zoom: newPosition.zoom,
-    });
+    if (mapRef.current) {
+      mapRef.current.zoomOut();
+    }
   };
 
   const closePopupAndDialog = () => {
@@ -228,39 +259,13 @@ export default function BiodiversityMap() {
     setIsDialogOpen(false);
     setHoveredProvinceImage(null);
     setIsPhylogeneticTreeOpen(false);
-    // setProvinceTooltipText("");
   };
 
-  return (
-    <div
-      ref={mapRef}
-      className="relative h-full w-full overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100"
-    >
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-50/90 to-cyan-50/90 backdrop-blur-sm z-30"
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }}
-            >
-              <RefreshCw className="h-8 w-8 text-blue-600" />
-            </motion.div>
-            <span className="ml-3 text-blue-700 font-medium">
-              Loading biodiversity map...
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+  const fillLayer = createLayerStyle();
+  const hoverLayer = createHoverLayerStyle();
 
+  return (
+    <div className="relative h-full w-full overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -290,62 +295,27 @@ export default function BiodiversityMap() {
         ))}
       </motion.div>
 
-      {!isLoading && (
-        <ComposableMap
-          projection="geoMercator"
-          projectionConfig={{ scale: 1500, center: [118, -2.5] }}
-          style={{ width: "100%", height: "100%" }}
+      {geoData && (
+        <Map
+          ref={mapRef}
+          {...viewState}
+          onMove={(evt) => setViewState(evt.viewState)}
+          style={{ width: '100%', height: '100%' }}
+          onClick={handleClick}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          interactiveLayerIds={['provinces-fill']}
+          maxBounds={[
+            [BOUNDS.minLongitude, BOUNDS.minLatitude],
+            [BOUNDS.maxLongitude, BOUNDS.maxLatitude]
+          ]}
+          cursor={hoveredFeature ? 'pointer' : 'default'}
         >
-          <ZoomableGroup
-            zoom={position.zoom}
-            center={position.coordinates as [number, number]}
-            onMoveEnd={handleMoveEnd}
-            filterZoomEvent={(event: any) =>
-              !(
-                event.target instanceof SVGElement &&
-                event.target.closest(".no-zoom")
-              )
-            }
-          >
-            <Geographies
-              geography={INDONESIA_GEO_URL}
-              className="w-full h-full"
-            >
-              {({
-                geographies,
-              }: {
-                geographies: Array<{
-                  rsmKey: string;
-                  properties: { provinsi: string };
-                }>;
-              }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill={getProvinceColor(geo.properties.provinsi)}
-                    stroke="#000"
-                    strokeWidth={0.5 / position.zoom}
-                    style={{
-                      default: { outline: "none", transition: "fill 0.3s" },
-                      hover: {
-                        fill: "#f0f0f0",
-                        outline: "none",
-                        cursor: "pointer",
-                        transition: "fill 0.3s",
-                        filter: "brightness(1.1)",
-                      },
-                      pressed: { outline: "none", transition: "fill 0.2s" },
-                    }}
-                    onClick={() => handleProvinceClick(geo)}
-                    onMouseEnter={() => handleProvinceMouseEnter(geo)}
-                    onMouseLeave={handleProvinceMouseLeave}
-                  />
-                ))
-              }
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+          <Source id="provinces" type="geojson" data={geoData}>
+            {fillLayer && <Layer {...fillLayer} />}
+            <Layer {...hoverLayer} />
+          </Source>
+        </Map>
       )}
 
       <AnimatePresence>
@@ -379,12 +349,6 @@ export default function BiodiversityMap() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* {provinceTooltipText && !isDialogOpen && (
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-3 py-1 rounded-md text-sm shadow-lg z-20 pointer-events-none">
-          {provinceTooltipText}
-        </div>
-      )} */}
 
       <AnimatePresence>
         {selectedProvinceInfo && (
@@ -461,7 +425,7 @@ export default function BiodiversityMap() {
                       <div className="pt-2">
                         <Button
                           className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-md"
-                          onClick={handleViewSpeciesTree} // This will now open the tree dialog
+                          onClick={handleViewSpeciesTree}
                         >
                           View Phylogenetic Tree
                         </Button>
@@ -481,7 +445,7 @@ export default function BiodiversityMap() {
         transition={{ delay: 0.3 }}
         className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg text-sm text-gray-600 shadow-lg border border-blue-200 z-10"
       >
-        Zoom: {Math.round(position.zoom * 100)}%
+        Zoom: {Math.round(viewState.zoom * 100)}%
       </motion.div>
 
       {/* Dialog for Phylogenetic Tree */}
