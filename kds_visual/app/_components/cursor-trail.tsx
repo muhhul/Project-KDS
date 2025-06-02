@@ -10,7 +10,7 @@ export default function CursorTrail() {
   const trailCounterRef = useRef(0)
   const throttleTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const isVisibleRef = useRef(false)
-  const animationFrameRef = useRef<number | undefined>(undefined)
+  const animationFrameRef = useRef<number|undefined>(undefined)
 
   useEffect(() => {
     // Create trail elements
@@ -101,6 +101,46 @@ export default function CursorTrail() {
       isVisibleRef.current = true
     }
 
+    // Handle when mouse leaves the document/window
+    const handleDocumentMouseLeave = (e: MouseEvent) => {
+      // Check if mouse is actually leaving the document
+      if (e.clientY <= 0 || e.clientX <= 0 || e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) {
+        isVisibleRef.current = false
+        lastPositionRef.current = { x: -100, y: -100 }
+        // Fade out all trails
+        trailsRef.current.forEach((trail) => {
+          trail.style.opacity = "0"
+        })
+      }
+    }
+
+    // Handle visibility change (when switching tabs)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isVisibleRef.current = false
+        // Fade out all trails
+        trailsRef.current.forEach((trail) => {
+          trail.style.opacity = "0"
+        })
+      }
+    }
+
+    // Handle window focus/blur
+    const handleWindowBlur = () => {
+      isVisibleRef.current = false
+      // Fade out all trails
+      trailsRef.current.forEach((trail) => {
+        trail.style.opacity = "0"
+      })
+    }
+
+    const handleWindowFocus = () => {
+      // Only show if mouse is within window bounds
+      if (mousePositionRef.current.x >= 0 && mousePositionRef.current.y >= 0) {
+        isVisibleRef.current = true
+      }
+    }
+
     // Create a trail at the specified position
     const createTrail = (x: number, y: number) => {
       const index = trailCounterRef.current % trailsRef.current.length
@@ -117,13 +157,25 @@ export default function CursorTrail() {
 
     // Add event listeners
     document.addEventListener("mousemove", handleMouseMove)
-    document.addEventListener("mouseleave", handleMouseLeave)
+    document.addEventListener("mouseleave", handleDocumentMouseLeave)
     document.addEventListener("mouseenter", handleMouseEnter)
+
+    // Additional event listeners for better visibility control
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+    window.addEventListener("blur", handleWindowBlur)
+    window.addEventListener("focus", handleWindowFocus)
+    window.addEventListener("mouseleave", handleWindowBlur)
+    window.addEventListener("mouseenter", handleWindowFocus)
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove)
-      document.removeEventListener("mouseleave", handleMouseLeave)
+      document.removeEventListener("mouseleave", handleDocumentMouseLeave)
       document.removeEventListener("mouseenter", handleMouseEnter)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
+      window.removeEventListener("blur", handleWindowBlur)
+      window.removeEventListener("focus", handleWindowFocus)
+      window.removeEventListener("mouseleave", handleWindowBlur)
+      window.removeEventListener("mouseenter", handleWindowFocus)
       if (throttleTimeoutRef.current) clearTimeout(throttleTimeoutRef.current)
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current)
     }
