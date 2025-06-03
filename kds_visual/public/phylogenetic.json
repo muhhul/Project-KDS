@@ -1728,6 +1728,10 @@
                                                                                                                       {
                                                                                                                         "name": "Tarsius_tarsier",
                                                                                                                         "branch_length": 1.0
+                                                                                                                      },
+                                                                                                                      {
+                                                                                                                        "name": "Tarsius_bancanus",
+                                                                                                                        "branch_length": 1.0
                                                                                                                       }
                                                                                                                     ]
                                                                                                                   }
