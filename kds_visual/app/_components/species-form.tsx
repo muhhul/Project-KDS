@@ -139,7 +139,6 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Card className="glass-morphism border-white/30 pt-0 shadow-tropical hover:shadow-glow transition-all duration-700">
-        <div className="h-5 ocean-gradient" />
         <CardContent className="pt-10 pb-10 px-8 relative">
           <div className="absolute inset-0 batik-pattern opacity-10" />
           <motion.div
@@ -161,9 +160,9 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                 >
                   <Search className="h-6 w-6 text-batik-gold" />
                 </motion.div>
-                <h2 className="text-2xl font-batik font-bold text-white">Species Analysis</h2>
+                <h2 className="text-3xl font-batik font-bold text-white">Species Analysis</h2>
               </motion.div>
-              <p className="text-white/80 font-tropical">Enter the scientific name of the species for phylogenetic analysis</p>
+              <p className="text-white/80 font-tropical">Enter a species name to generate its phylogenetic tree</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
@@ -243,12 +242,12 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-3 h-6 w-6 animate-spin" />
-                          Analyzing...
+                          Generating Tree...
                         </>
                       ) : (
                         <>
                           <Sparkles className="mr-3 h-6 w-6" />
-                          Analyze Species
+                          Generate Phylogenetic Tree
                         </>
                       )}
                     </div>

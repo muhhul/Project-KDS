@@ -341,6 +341,7 @@ export default function BiodiversityMap() {
             [BOUNDS.maxLongitude, BOUNDS.maxLatitude],
           ]}
           cursor={hoveredFeature ? "pointer" : "default"}
+          mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
         >
           <Source id="provinces" type="geojson" data={geoData}>
             {fillLayer && <Layer {...fillLayer} />}
