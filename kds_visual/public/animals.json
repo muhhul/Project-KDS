@@ -6,7 +6,9 @@
     "Taxonomy name": "Copsychus pyrropygus",
     "Video": "https://drive.google.com/file/d/195LcYN6R6IlL4TrkAfcHd9ZIgNeD42Af/view?usp=drive_link",
     "Deskripsi Singkat": "Burung pengicau hutan dengan ekor berwarna karat khas.",
-    "Image": "https://tse2.mm.bing.net/th/id/OIP.iU9s52y-iN_7qAX0Lvw8pwHaEU?r=0&rs=1&pid=ImgDetMain"
+    "Image": "https://tse2.mm.bing.net/th/id/OIP.iU9s52y-iN_7qAX0Lvw8pwHaEU?r=0&rs=1&pid=ImgDetMain",
+    "Habitat": "Hutan dataran rendah lembab subtropis/tropis, rawa subtropis/tropis",
+    "StatusKonservasi": "Near Threatened"
   },
   {
     "Provinsi": "Sumatera Utara",
@@ -15,7 +17,9 @@
     "Taxonomy name": "Gracula robusta",
     "Video": "https://drive.google.com/file/d/1_ncaIelRQH9_komSMc-z26rkUv4kT9NU/view?usp=drive_link",
     "Deskripsi Singkat": "Burung endemik Nias, terkenal pandai meniru suara manusia.",
-    "Image": "https://gemarburung.com/wp-content/uploads/2017/10/Beo-Nias1.jpg"
+    "Image": "https://gemarburung.com/wp-content/uploads/2017/10/Beo-Nias1.jpg",
+    "Habitat": "Hutan perbukitan, arboreal",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Sumatera Barat",
@@ -24,7 +28,9 @@
     "Taxonomy name": "Argusianus argus",
     "Video": "https://drive.google.com/file/d/1_p17WiuCq3Wh1VWKH8eSgcan49fbOZVz/view?usp=drive_link",
     "Deskripsi Singkat": "Burung besar dengan bulu ekor jantan sangat panjang indah.",
-    "Image": "https://i.pinimg.com/originals/d3/c7/1a/d3c71ab2a7a158845ac7eed9d0720d07.jpg"
+    "Image": "https://i.pinimg.com/originals/d3/c7/1a/d3c71ab2a7a158845ac7eed9d0720d07.jpg",
+    "Habitat": "Hutan primer dan sekunder di Kalimantan, Sumatra, dan Semenanjung Malaya",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Riau",
@@ -33,7 +39,9 @@
     "Taxonomy name": "Loriculus galgulus",
     "Video": "https://drive.google.com/file/d/1DF7lMiaxpVfRZ34NmoyMKYEzrY9PAWql/view?usp=drive_link",
     "Deskripsi Singkat": "Burung beo kecil berwarna hijau, sering menggantung terbalik.",
-    "Image": "https://omkicau.com/wp-content/uploads/2013/05/serindit-tangkaran2.jpg"
+    "Image": "https://omkicau.com/wp-content/uploads/2013/05/serindit-tangkaran2.jpg",
+    "Habitat": "Hutan, tepi hutan, rawa, hutan riparian, kebun bambu, mangrove, perkebunan kelapa",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Kepulauan Riau",
@@ -42,16 +50,20 @@
     "Taxonomy name": "Lutjanus sanguineus",
     "Video": "https://drive.google.com/file/d/1GlIrskYAs-m8tgIgwFcryr3ZM7zH2QJy/view?usp=drive_link",
     "Deskripsi Singkat": "Ikan laut komersial penting berwarna kemerahan cerah.",
-    "Image": "https://1.bp.blogspot.com/-qx8JJJZmR6A/XjkdjViGKsI/AAAAAAAAK8E/pgRQTXyXQzM7q43IXg7sGNQoUAxeo09XwCLcBGAsYHQ/s400/kakap%2Bmerah%2Btop.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Lutjanus+sanguineus",
+    "Habitat": "Terumbu karang dan berbatu (kedalaman 9-100 m)",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Jambi",
     "Nama Umum": "Harimau Sumatra",
     "Nama Latin": "Panthera tigris sondaica",
-    "Taxonomy name": "Panthera tigris sondaica",
+    "Taxonomy name": "Panthera tigris sumatrae",
     "Video": "https://drive.google.com/file/d/1D3egJ5omUMRmxT0zHa_7MJwk1LfzwjKN/view?usp=drive_link",
     "Deskripsi Singkat": "Subspesies harimau terkecil, endemik Pulau Sumatra, sangat terancam.",
-    "Image": "https://th.bing.com/th/id/OSK.01884f887e26c091bb12a4bf57b70627?r=0&rs=1&pid=ImgDetMain"
+    "Image": "https://th.bing.com/th/id/OSK.01884f887e26c091bb12a4bf57b70627?r=0&rs=1&pid=ImgDetMain",
+    "Habitat": "Hutan dataran rendah tropis, hutan rawa air tawar, hutan gambut",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Sumatera Selatan",
@@ -60,7 +72,9 @@
     "Taxonomy name": "Chitala lopis",
     "Video": "https://drive.google.com/file/d/1ZSiPXyAlYtbYFCnpfpiqO5cumVKrIMM5/view?usp=drive_link",
     "Deskripsi Singkat": "Ikan air tawar berbentuk pipih seperti pisau, predator nokturnal.",
-    "Image": "https://ik.imagekit.io/ikanpedia/wp-content/uploads/2023/05/Jenis-Ikan-Belida.jpg"
+    "Image": "https://ik.imagekit.io/ikanpedia/wp-content/uploads/2023/05/Jenis-Ikan-Belida.jpg",
+    "Habitat": "Sungai air tawar, danau, lahan basah dengan vegetasi lebat",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Kepulauan Bangka Belitung",
@@ -69,7 +83,9 @@
     "Taxonomy name": "Tarsius bancanus",
     "Video": "https://drive.google.com/file/d/1rtz3aOzUQhHl4ZjSe7DSGJCfhfRwq1sN/view?usp=drive_link",
     "Deskripsi Singkat": "Primata kecil nokturnal dengan mata besar, pemakan serangga.",
-    "Image": "https://www.mongabay.co.id/wp-content/uploads/2020/02/Mentilin1-768x667.jpg"
+    "Image": "https://www.mongabay.co.id/wp-content/uploads/2020/02/Mentilin1-768x667.jpg",
+    "Habitat": "Hutan primer dan sekunder, hutan pantai, tepi hutan, sering di vegetasi bawah atau rumpun bambu",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Bengkulu",
@@ -78,7 +94,9 @@
     "Taxonomy name": "Helarctos malayanus",
     "Video": "https://drive.google.com/file/d/1jEaSUl-l6vbiL7hKjEct_z-0iRoUHMvq/view?usp=drive_link",
     "Deskripsi Singkat": "Beruang terkecil di dunia, memiliki lidah panjang pemakan serangga.",
-    "Image": "https://animalium.id/wp-content/uploads/2023/02/Beruang-madu-Helarctos-malayanus.jpg"
+    "Image": "https://animalium.id/wp-content/uploads/2023/02/Beruang-madu-Helarctos-malayanus.jpg",
+    "Habitat": "Hutan tropis, hutan gugur dan hijau sepanjang tahun, biasanya di dataran rendah",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Lampung",
@@ -87,7 +105,9 @@
     "Taxonomy name": "Elephas maximus sumatranus",
     "Video": "https://drive.google.com/file/d/1gcVh5YODAi_2Awo0t35LAoJMG4zt77KA/view?usp=drive_link",
     "Deskripsi Singkat": "Subspesies gajah Asia, endemik Sumatra, terancam punah.",
-    "Image": "https://media.istockphoto.com/id/1402403391/id/foto/sumatera-elephant.jpg?s=612x612&w=0&k=20&c=ba8VcE5EmT3B7codwyQ9I_mOQBmhzFBN_jSyOv1-RFA="
+    "Image": "https://media.istockphoto.com/id/1402403391/id/foto/sumatera-elephant.jpg?s=612x612&w=0&k=20&c=ba8VcE5EmT3B7codwyQ9I_mOQBmhzFBN_jSyOv1-RFA=",
+    "Habitat": "Hutan tropis lembab berdaun lebar",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Banten",
@@ -96,16 +116,20 @@
     "Taxonomy name": "Rhinoceros sondaicus",
     "Video": "https://drive.google.com/file/d/158nJad-jlLpjZ3LpfhoSro_Tw-bj3lIo/view?usp=drive_link",
     "Deskripsi Singkat": "Badak bercula satu sangat langka, hanya ada di Ujung Kulon.",
-    "Image": "https://images.takeshape.io/86ce9525-f5f2-4e97-81ba-54e8ce933da7/dev/d950e9f9-955f-4fc3-b49a-139d097e34e5/Javan%20rhino%20iStock-1305319298%20resized.jpeg?auto=compress%2Cformat&h=630&w=1200"
+    "Image": "https://images.takeshape.io/86ce9525-f5f2-4e97-81ba-54e8ce933da7/dev/d950e9f9-955f-4fc3-b49a-139d097e34e5/Javan%20rhino%20iStock-1305319298%20resized.jpeg?auto=compress%2Cformat&h=630&w=1200",
+    "Habitat": "Hutan hujan tropis dataran rendah, area dengan vegetasi lebat, kubangan, dan sumber garam",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
-    "Provinsi": "DKI Jakarta",
+    "Provinsi": "Jakarta",
     "Nama Umum": "Elang Bondol",
     "Nama Latin": "Haliastur indus",
     "Taxonomy name": "Haliastur indus",
     "Video": "https://drive.google.com/file/d/15fvwbYPrrwnbdXE9o88hiOWzsojZY1Ki/view?usp=drive_link",
     "Deskripsi Singkat": "Burung pemangsa, kepala putih kontras dengan tubuh coklat kemerahan.",
-    "Image": "https://img.freepik.com/free-photo/close-up-picture-bondol-eagle-elang-bondol-indonesia_596820-145.jpg"
+    "Image": "https://img.freepik.com/free-photo/close-up-picture-bondol-eagle-elang-bondol-indonesia_596820-145.jpg",
+    "Habitat": "Lahan basah, area pesisir, muara sungai, mangrove",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Jawa Barat",
@@ -114,7 +138,9 @@
     "Taxonomy name": "Panthera pardus",
     "Video": "https://drive.google.com/file/d/1aV2zVgeM--0d5E30vDTxewNF3Ppr-HFh/view?usp=drive_link",
     "Deskripsi Singkat": "Subspesies macan tutul endemik Pulau Jawa, terancam punah.",
-    "Image": "https://1.bp.blogspot.com/-JKGUwQDRILU/X18cRzjzMKI/AAAAAAAALmI/LyUybRzovVgswUaNGBsGW1IQlIU951_bwCNcBGAsYHQ/w1200-h630-p-k-no-nu/MACAN%2BTUTUL%2BJAWA.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Panthera+pardus+melas",
+    "Habitat": "Hutan hujan tropis, hutan gugur kering, hutan pegunungan di Jawa",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Jawa Tengah",
@@ -123,7 +149,9 @@
     "Taxonomy name": "Oriolus chinensis",
     "Video": "https://drive.google.com/file/d/1fmIr8Do4PN8gZRelNE2z4p4UwgcPkMCV/view?usp=drive_link",
     "Deskripsi Singkat": "Burung pengicau berwarna kuning cerah dengan corak hitam.",
-    "Image": "https://3.bp.blogspot.com/-v0FisOVB0hw/UiAfz1wPE6I/AAAAAAAAAH4/pzgWyfBj0Zc/s1600/kepodang+emas.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Oriolus+chinensis",
+    "Habitat": "Hutan terbuka, hutan sekunder, mangrove, taman, kebun, area pertanian",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Yogyakarta",
@@ -132,7 +160,9 @@
     "Taxonomy name": "Geopelia striata",
     "Video": "https://drive.google.com/file/d/1Eu3Nx_TeAX3ohtVe6WLePeL9TEc8qq8K/view?usp=drive_link",
     "Deskripsi Singkat": "Burung merpati kecil dengan suara khas, populer sebagai peliharaan.",
-    "Image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhTPNiHWmPTBUEEnMqS4-5_48i5YJX8WZj65vPJulK8akpDv_kkeqQN6w5LaqAg7BI2XtHq6Xu7yIqKWLUOJ25PEDYwvdU7bDRiOt5_3m3vxXKnLkTqd7TWiSai33T6wXPTk9Jai6tjDAUQ3dw3dUnA4xEph8TGhxPlcib89ZcykapI2smLb7MxnDy_w/s1200/Burung%20Perkutut.jpg"
+    "Image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhTPNiHWmPTBUEEnMqS4-5_48i5YJX8WZj65vPJulK8akpDv_kkeqQN6w5LaqAg7BI2XtHq6Xu7yIqKWLUOJ25PEDYwvdU7bDRiOt5_3m3vxXKnLkTqd7TWiSai33T6wXPTk9Jai6tjDAUQ3dw3dUnA4xEph8TGhxPlcib89ZcykapI2smLb7MxnDy_w/s1200/Burung%20Perkutut.jpg",
+    "Habitat": "Hutan tropis, rawa mangrove, area perkotaan",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Jawa Timur",
@@ -141,16 +171,20 @@
     "Taxonomy name": "Gallus varius",
     "Video": "https://drive.google.com/file/d/14D6q9L29dCYVX622QyCbEeudCcqsWJLH/view?usp=drive_link",
     "Deskripsi Singkat": "Ayam hibrida, hasil silangan ayam hutan hijau dan domestik.",
-    "Image": "https://www.bebeja.com/wp-content/uploads/2013/07/ayam-bekisar.jpg"
+    "Image": "https://www.bebeja.com/wp-content/uploads/2013/07/ayam-bekisar.jpg",
+    "Habitat": "Hutan tropis dan semak belukar (untuk Gallus varius)",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Bali",
     "Nama Umum": "Jalak Bali",
     "Nama Latin": "Leucopsar rotschildi",
-    "Taxonomy name": "Leucopsar rotschildi",
+    "Taxonomy name": "Leucopsar rothschildi",
     "Video": "https://drive.google.com/file/d/1ZoMFfm4AubFKK_5YP2MjoYvh4O7KMS6Y/view?usp=drive_link",
     "Deskripsi Singkat": "Burung endemik Bali berwarna putih, jambul indah, sangat langka.",
-    "Image": "https://1001indonesia.net/asset/2016/02/Jalak-Bali.jpg"
+    "Image": "https://1001indonesia.net/asset/2016/02/Jalak-Bali.jpg",
+    "Habitat": "Hutan musim dataran rendah di Bali Barat",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Nusa Tenggara Barat",
@@ -159,7 +193,9 @@
     "Taxonomy name": "Rusa timorensis",
     "Video": "https://drive.google.com/file/d/1neMNh0jmuKXXT6J2Z58-z1p20_9W9xtz/view?usp=drive_link",
     "Deskripsi Singkat": "Jenis rusa yang tersebar luas di Indonesia bagian timur.",
-    "Image": "https://1001indonesia.net/asset/2020/12/Rusa-Timor.jpg"
+    "Image": "https://1001indonesia.net/asset/2020/12/Rusa-Timor.jpg",
+    "Habitat": "Padang rumput, sabana, hutan terbuka, hutan semak",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Nusa Tenggara Timur",
@@ -168,7 +204,9 @@
     "Taxonomy name": "Varanus komodoensis",
     "Video": "https://drive.google.com/file/d/10j5O9jsWf5CDYLKA7zpPfbsgJEQ99HN6/view?usp=drive_link",
     "Deskripsi Singkat": "Kadal terbesar di dunia, predator puncak endemik Pulau Komodo.",
-    "Image": "https://www.rekoforest.org/wp-content/uploads/2022/04/rer-komodo.jpg"
+    "Image": "https://www.rekoforest.org/wp-content/uploads/2022/04/rer-komodo.jpg",
+    "Habitat": "Hutan sabana tropis, hutan musim gugur, padang rumput, pantai",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Kalimantan Barat",
@@ -177,7 +215,9 @@
     "Taxonomy name": "Rhinoplax vigil",
     "Video": "https://drive.google.com/file/d/1ZzAUqmFCG19VX5mpK-LwTK03wqXseht3/view?usp=drive_link",
     "Deskripsi Singkat": "Burung rangkong besar dengan paruh unik dan berharga.",
-    "Image": "https://1.bp.blogspot.com/-sN6-1e3xML0/T376suPq4cI/AAAAAAAAAco/dFp_sl60wrw/s1600/engganga.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Rhinoplax+vigil",
+    "Habitat": "Hutan primer dipterokarpa dataran rendah dan perbukitan",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Kalimantan Tengah",
@@ -186,7 +226,9 @@
     "Taxonomy name": "Polyplectron schleiermacheri",
     "Video": "https://drive.google.com/file/d/1bLKuRbinxqQ5hhi1dh8_xwfLp6li23sR/view?usp=drive_link",
     "Deskripsi Singkat": "Burung merak kecil endemik Kalimantan, sulit ditemukan.",
-    "Image": "https://tse1.mm.bing.net/th/id/OIP.qtPkE8rA3M5iPoETDo37PwAAAA?r=0&rs=1&pid=ImgDetMain"
+    "Image": "https://tse1.mm.bing.net/th/id/OIP.qtPkE8rA3M5iPoETDo37PwAAAA?r=0&rs=1&pid=ImgDetMain",
+    "Habitat": "Hutan hujan dataran rendah, terutama di tanah aluvial, sering dekat sungai",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Kalimantan Selatan",
@@ -195,7 +237,9 @@
     "Taxonomy name": "Nasalis larvatus",
     "Video": "https://drive.google.com/file/d/17AIj9Xq4hcHx0iREoQtdMvqXq89I9OjF/view?usp=drive_link",
     "Deskripsi Singkat": "Monyet endemik Kalimantan dengan hidung panjang dan besar khas.",
-    "Image": "https://www.balisafarimarinepark.com/wp-content/uploads/2023/03/proboscis-monkey-2422094_1280.jpeg"
+    "Image": "https://www.balisafarimarinepark.com/wp-content/uploads/2023/03/proboscis-monkey-2422094_1280.jpeg",
+    "Habitat": "Hutan mangrove, hutan rawa, hutan riparian",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Kalimantan Timur",
@@ -204,7 +248,9 @@
     "Taxonomy name": "Orcaella brevirostris",
     "Video": "https://drive.google.com/file/d/1s-NzcGEy4cXszFYAauj_AH1WAnGlDXxR/view?usp=drive_link",
     "Deskripsi Singkat": "Lumba-lumba air tawar langka, hidup di Sungai Mahakam.",
-    "Image": "https://th.bing.com/th/id/R.290d6c5ba5ac74d42dfc4edeaa054a45?rik=%2fFDRDUtFvT0X8Q&riu=http%3a%2f%2fwww.greeners.co%2fwp-content%2fuploads%2f2017%2f11%2fFauna-Pesut-Mahakam-Lumba-Lumba-Air-Tawar-Indonesia_02.jpg&ehk=%2f06BzVDkk1b4mLbpvVpf8kIf97zxBc7Y25qcwuln7jU%3d&risl=&pid=ImgRaw&r=0"
+    "Image": "https://th.bing.com/th/id/R.290d6c5ba5ac74d42dfc4edeaa054a45?rik=%2fFDRDUtFvT0X8Q&riu=http%3a%2f%2fwww.greeners.co%2fwp-content%2fuploads%2f2017%2f11%2fFauna-Pesut-Mahakam-Lumba-Lumba-Air-Tawar-Indonesia_02.jpg&ehk=%2f06BzVDkk1b4mLbpvVpf8kIf97zxBc7Y25qcwuln7jU%3d&risl=&pid=ImgRaw&r=0",
+    "Habitat": "Sistem sungai air tawar, muara, perairan pesisir (populasi Mahakam di air tawar)",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Kalimantan Utara",
@@ -213,7 +259,9 @@
     "Taxonomy name": "Buceros rhinoceros",
     "Video": "https://drive.google.com/file/d/1phdMoDIv_KXAf7CIHni3Um9UQ2dNntwN/view?usp=drive_link",
     "Deskripsi Singkat": "Burung rangkong besar dengan paruh melengkung menyerupai cula badak.",
-    "Image": "https://d2ih5qgee2kfcl.cloudfront.net/content/2019/09/21/lNseDR/t_5d85b3bde823a_700.jpg"
+    "Image": "https://d2ih5qgee2kfcl.cloudfront.net/content/2019/09/21/lNseDR/t_5d85b3bde823a_700.jpg",
+    "Habitat": "Hutan dataran rendah primer yang tidak terganggu",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Sulawesi Selatan",
@@ -222,7 +270,9 @@
     "Taxonomy name": "Rhyticeros cassidix",
     "Video": "https://drive.google.com/file/d/1ebJw2RuQZJx3_aQhllrp9RfgD61KhsSi/view?usp=drive_link",
     "Deskripsi Singkat": "Burung rangkong endemik Sulawesi dengan kantung leher besar berwarna.",
-    "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Aceros_cassidix_-North_Sulawesi-4.jpg/500px-Aceros_cassidix_-North_Sulawesi-4.jpg"
+    "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Aceros_cassidix_-North_Sulawesi-4.jpg/500px-Aceros_cassidix_-North_Sulawesi-4.jpg",
+    "Habitat": "Hutan primer dan sekunder tinggi, dari dataran rendah hingga pegunungan",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Sulawesi Barat",
@@ -231,7 +281,9 @@
     "Taxonomy name": "Aramidopsis plateni",
     "Video": "https://drive.google.com/file/d/1wDucWxxTvQpo2CWwGLRHarTFBbRDNNUB/view?usp=drive_link",
     "Deskripsi Singkat": "Burung endemik Sulawesi yang pemalu dan sulit terbang.",
-    "Image": "https://th.bing.com/th/id/R.282ee35437de03f83bfaf3bcc4f29f71?rik=jkcFXWoOyh9uJA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-WdWIFbq-974%2fVLgOjTencNI%2fAAAAAAAAAX4%2fiziA5dHqLlI%2fs1600%2fred-knobbed-hornbill.jpg&ehk=BpDyjF89TfYZYGJrGkulhMPty2%2fMKli3TX3vQtKB1%2f4%3d&risl=&pid=ImgRaw&r=0"
+    "Image": "https://th.bing.com/th/id/R.282ee35437de03f83bfaf3bcc4f29f71?rik=jkcFXWoOyh9uJA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-WdWIFbq-974%2fVLgOjTencNI%2fAAAAAAAAAX4%2fiziA5dHqLlI%2fs1600%2fred-knobbed-hornbill.jpg&ehk=BpDyjF89TfYZYGJrGkulhMPty2%2fMKli3TX3vQtKB1%2f4%3d&risl=&pid=ImgRaw&r=0",
+    "Habitat": "Hutan lebat dan lembab di Sulawesi dan Buton, dekat sumber air dengan vegetasi bawah lebat",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Sulawesi Tenggara",
@@ -240,7 +292,9 @@
     "Taxonomy name": "Bubalus depressicornis",
     "Video": "https://drive.google.com/file/d/1wLvuLFriwt3Ss15lLSL20__2swWCoAAe/view?usp=drive_link",
     "Deskripsi Singkat": "Kerbau kerdil endemik Sulawesi, hidup di hutan tropis.",
-    "Image": "https://1.bp.blogspot.com/-8j6qikxHbJI/V8JxDJhaOrI/AAAAAAAAFl8/SO-RlHBZLI4KY3CNvhkagxxJboTcPgXWQCLcB/s1600/Foto%2Bdan%2Bbentuk%2BHewan%2BLangka%2BSulawesi%2BAnoa.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Bubalus+depressicornis",
+    "Habitat": "Hutan tropis dataran rendah primer dan sekunder, hutan rawa, hutan mangrove, hingga pegunungan",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Sulawesi Tengah",
@@ -249,7 +303,9 @@
     "Taxonomy name": "Macrocephalon maleo",
     "Video": "https://drive.google.com/file/d/1QZv95I4KcXs2N4gnxGO22SIgu-GJJWov/view?usp=drive_link",
     "Deskripsi Singkat": "Burung endemik Sulawesi, bertelur di pasir panas vulkanik.",
-    "Image": "https://i.pinimg.com/736x/eb/d9/9c/ebd99c8c23c792b588733027c0a76e09--animals.jpg"
+    "Image": "https://i.pinimg.com/736x/eb/d9/9c/ebd99c8c23c792b588733027c0a76e09--animals.jpg",
+    "Habitat": "Hutan dataran rendah dan perbukitan, bersarang di pantai berpasir, tanah vulkanik, atau tepi sungai yang terpapar matahari",
+    "StatusKonservasi": "Critically Endangered"
   },
   {
     "Provinsi": "Gorontalo",
@@ -258,16 +314,20 @@
     "Taxonomy name": "Liza dussumieri",
     "Video": "https://drive.google.com/file/d/1JC5tj64xJH9yGbJgQkcTSwUguzXnBzPu/view?usp=drive_link",
     "Deskripsi Singkat": "Jenis ikan belanak yang banyak ditemukan di perairan Gorontalo.",
-    "Image": "https://1.bp.blogspot.com/-3TqX_I263Ao/UcAimZcXBUI/AAAAAAAAAXU/EJb_KABJp54/w1200-h630-p-k-no-nu/Liza+dussumieri+IKAN+BULALAO.jpg"
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Liza+dussumieri",
+    "Habitat": "Perairan pesisir, muara, laguna, kadang masuk air tawar",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Sulawesi Utara",
     "Nama Umum": "Tangkasi",
     "Nama Latin": "Tarsius tarsier",
-    "Taxonomy name": "Tarsius tarsier",
+    "Taxonomy name": "Tarsius spectrum",
     "Video": "https://drive.google.com/file/d/1mKs7R4_VQGmvilk16tGrCbl8xLZgR6zI/view?usp=drive_link",
     "Deskripsi Singkat": "Primata kecil nokturnal dengan mata besar, endemik Sulawesi.",
-    "Image": "https://th.bing.com/th/id/R.bd20375c33a8145d0f82597a2fc459b8?rik=4Gvo82z689kwYg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-2SQfHDutmyQ%2fVU1DgzqsRKI%2fAAAAAAAADGM%2fznsX_V-YsAA%2fw1200-h630-p-k-no-nu%2ftarsius.jpeg&ehk=7syIYRaUr0l0OuYi1J514t9zIRcMDtd%2bZJ2t6k43Qq4%3d&risl=&pid=ImgRaw&r=0"
+    "Image": "https://th.bing.com/th/id/R.bd20375c33a8145d0f82597a2fc459b8?rik=4Gvo82z689kwYg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-2SQfHDutmyQ%2fVU1DgzqsRKI%2fAAAAAAAADGM%2fznsX_V-YsAA%2fw1200-h630-p-k-no-nu%2ftarsius.jpeg&ehk=7syIYRaUr0l0OuYi1J514t9zIRcMDtd%2bZJ2t6k43Qq4%3d&risl=&pid=ImgRaw&r=0",
+    "Habitat": "Hutan hujan primer dan sekunder, hutan mangrove, semak belukar, kebun hutan di Sulawesi",
+    "StatusKonservasi": "Vulnerable"
   },
   {
     "Provinsi": "Maluku Utara",
@@ -276,7 +336,9 @@
     "Taxonomy name": "Semioptera wallacii",
     "Video": "https://drive.google.com/file/d/1BKYECKHDffWWEE42zlfhcrNv7R01mXcW/view?usp=drive_link",
     "Deskripsi Singkat": "Burung cendrawasih endemik Halmahera, memiliki dua pasang standar hiasan.",
-    "Image": "https://leuserconservation.org/wp-content/uploads/2021/03/Bidadari-halmahera2.jpeg"
+    "Image": "https://leuserconservation.org/wp-content/uploads/2021/03/Bidadari-halmahera2.jpeg",
+    "Habitat": "Hutan hujan dataran rendah dan perbukitan, termasuk hutan sekunder di Halmahera",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Maluku",
@@ -285,7 +347,9 @@
     "Taxonomy name": "Alisterus amboinensis",
     "Video": "https://drive.google.com/file/d/1tu6s1VNXLkyGSZvhFCc8QxrLmhY88ni5/view?usp=drive_link",
     "Deskripsi Singkat": "Burung nuri berwarna merah cerah dengan sayap hijau, endemik Maluku.",
-    "Image": "https://tse4.mm.bing.net/th/id/OIP.umGwAXHO8LJZgJvyTZvEZAHaHB?r=0&rs=1&pid=ImgDetMain"
+    "Image": "https://tse4.mm.bing.net/th/id/OIP.umGwAXHO8LJZgJvyTZvEZAHaHB?r=0&rs=1&pid=ImgDetMain",
+    "Habitat": "Hutan primer dan sekunder di Kepulauan Maluku",
+    "StatusKonservasi": "Near Threatened"
   },
   {
     "Provinsi": "Papua Barat",
@@ -294,7 +358,9 @@
     "Taxonomy name": "Paradisaea rubra",
     "Video": "https://drive.google.com/file/d/1uhLiuRsBPEUZD-nfg-e1qP9XFdXj-gq1/view?usp=drive_link",
     "Deskripsi Singkat": "Burung cendrawasih endemik Papua, jantan berwarna merah menyala.",
-    "Image": "https://oentung.com/wp-content/uploads/2021/08/Burung-Cendrawasih-Merah-2.jpg"
+    "Image": "https://oentung.com/wp-content/uploads/2021/08/Burung-Cendrawasih-Merah-2.jpg",
+    "Habitat": "Hutan dataran rendah dan perbukitan, termasuk hutan rawa, di Pulau Waigeo dan Batanta",
+    "StatusKonservasi": "Near Threatened"
   },
   {
     "Provinsi": "Papua",
@@ -303,7 +369,9 @@
     "Taxonomy name": "Seleucidis melanoleucus",
     "Video": "https://drive.google.com/file/d/1pa97BULf60u13gUoUhH2_QCbfeNk0rcU/view?usp=drive_link",
     "Deskripsi Singkat": "Burung cendrawasih dengan dua belas filamen ekor seperti kawat.",
-    "Image": "https://th.bing.com/th/id/R.802bb5a08f27c10843dd7099e6676ef7?rik=qhCy6R0cD8aoLA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-qRlc3OWQ4kA%2fVKLUk8HmY-I%2fAAAAAAAAAUE%2fGGyjyT6bztg%2fs1600%2f12-wired-birdofparadise.jpg&ehk=kjzGlGAwr%2fG5wycThLIY3UZ3AZ9DsoOQOJSNYkWoA9Q%3d&risl=&pid=ImgRaw&r=0"
+    "Image": "https://th.bing.com/th/id/R.802bb5a08f27c10843dd7099e6676ef7?rik=qhCy6R0cD8aoLA&riu=http%3a%2f%2f4.bp.blogspot.com%2f-qRlc3OWQ4kA%2fVKLUk8HmY-I%2fAAAAAAAAAUE%2fGGyjyT6bztg%2fs1600%2f12-wired-birdofparadise.jpg&ehk=kjzGlGAwr%2fG5wycThLIY3UZ3AZ9DsoOQOJSNYkWoA9Q%3d&risl=&pid=ImgRaw&r=0",
+    "Habitat": "Hutan hujan dataran rendah dan hutan rawa di Papua dan Pulau Salawati",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Papua Tengah",
@@ -311,7 +379,10 @@
     "Nama Latin": "Rhincodon typus",
     "Taxonomy name": "Rhincodon typus",
     "Video": "https://drive.google.com/file/d/13qTjhxqAggPOtnlG7rr0ntwN50UuZoar/view?usp=drive_link",
-    "Deskripsi Singkat": "Ikan terbesar di dunia, pemakan plankton, sering dijumpai perairan Papua."
+    "Deskripsi Singkat": "Ikan terbesar di dunia, pemakan plankton, sering dijumpai perairan Papua.",
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Rhincodon+typus",
+    "Habitat": "Perairan terbuka di laut tropis dan hangat, juga area pesisir dengan produktivitas tinggi (misal Teluk Cenderawasih)",
+    "StatusKonservasi": "Endangered"
   },
   {
     "Provinsi": "Papua Pegunungan",
@@ -319,15 +390,21 @@
     "Nama Latin": "",
     "Taxonomy name": "",
     "Video": "",
-    "Deskripsi Singkat": ""
+    "Deskripsi Singkat": "",
+    "Image": "",
+    "Habitat": "Informasi tidak tersedia",
+    "StatusKonservasi": "Not Evaluated"
   },
   {
     "Provinsi": "Papua Selatan",
     "Nama Umum": "Walabi",
     "Nama Latin": "Familia Macropodidae",
-    "Taxonomy name": "Familia Macropodidae",
+    "Taxonomy name": "Macropus agilis",
     "Video": "https://drive.google.com/file/d/1hURLoog-N55tVZSKuXuJ6cO4e4Ii_Gb3/view?usp=drive_link",
-    "Deskripsi Singkat": "Mamalia marsupial kecil mirip kanguru, banyak dijumpai di Papua."
+    "Deskripsi Singkat": "Mamalia marsupial kecil mirip kanguru, banyak dijumpai di Papua.",
+    "Image": "https://placehold.co/600x400/cccccc/ffffff?text=Walabi+(Macropus+agilis)",
+    "Habitat": "Padang rumput, hutan terbuka, sabana, area pesisir (untuk Walabi Lincah/Agile Wallaby)",
+    "StatusKonservasi": "Least Concern"
   },
   {
     "Provinsi": "Papua Barat Daya",
@@ -335,6 +412,9 @@
     "Nama Latin": "",
     "Taxonomy name": "",
     "Video": "",
-    "Deskripsi Singkat": ""
+    "Deskripsi Singkat": "",
+    "Image": "",
+    "Habitat": "Informasi tidak tersedia",
+    "StatusKonservasi": "Not Evaluated"
   }
 ]
