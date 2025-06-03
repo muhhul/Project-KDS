@@ -46,7 +46,7 @@ const getGoogleDriveEmbedUrl = (url: string | null | undefined): string => {
   if (url.includes("drive.google.com")) {
     const fileIdMatch = url.match(/file\/d\/([a-zA-Z0-9_-]+)/);
     if (fileIdMatch && fileIdMatch[1]) {
-      return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview?embedded=true&loop=1&controls=0`;
+      return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`;
     }
   } else if (url.endsWith(".mp4")) {
     return url.startsWith("/") ? url : `/${url}`;
@@ -106,7 +106,7 @@ export default function BiodiversityMap() {
             item["Deskripsi Singkat"] ||
             `Endemic species of ${item.Provinsi}.`,
           imageUrl: item.Image || "/placeholder.svg?height=200&width=200",
-          videoUrl: item.Video || null,
+          videoUrl: item.Video !== "" ? item.Video : null,
         };
         return acc;
       },
@@ -210,6 +210,8 @@ export default function BiodiversityMap() {
         const feature = features[0];
         const provinceName = feature.properties?.provinsi;
         const speciesData = provinceSpeciesData[provinceName?.toUpperCase()];
+        
+        console.log("Species Data:", speciesData);
 
         if (speciesData) {
           setSelectedProvinceInfo({
@@ -401,7 +403,7 @@ export default function BiodiversityMap() {
               >
                 <div className="relative h-72 overflow-hidden">
                   {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 z-10" /> */}
-                  {selectedProvinceInfo.videoUrl && selectedProvinceInfo.videoUrl.endsWith(".mp4") ? (
+                  {typeof selectedProvinceInfo.videoUrl === "string" && selectedProvinceInfo.videoUrl.endsWith(".mp4") ? (
                     <video
                       src={getGoogleDriveEmbedUrl(selectedProvinceInfo.videoUrl)}
                       width="100%"
@@ -415,7 +417,7 @@ export default function BiodiversityMap() {
                     >
                       Your browser does not support the video tag.
                     </video>
-                  ) : selectedProvinceInfo.videoUrl && selectedProvinceInfo.videoUrl.includes("drive.google.com") ? (
+                  ) : typeof selectedProvinceInfo.videoUrl === "string" && selectedProvinceInfo.videoUrl.includes("drive.google.com") ? (
                     <iframe
                       src={getGoogleDriveEmbedUrl(selectedProvinceInfo.videoUrl)}
                       width="100%"
@@ -506,7 +508,7 @@ export default function BiodiversityMap() {
           }
         }}
       >
-        <DialogContent className="h-[700px] bg-white/95 backdrop-blur-sm border-0 shadow-2xl">
+        <DialogContent className="h-[700px] sm:max-w-7xl bg-white/95 backdrop-blur-sm border-0 shadow-2xl">
           <DialogHeader>
             <DialogTitle className="text-2xl bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               Phylogenetic Tree for{" "}
