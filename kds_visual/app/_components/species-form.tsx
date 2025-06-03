@@ -1,14 +1,26 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Loader2, Search, Sparkles, Leaf } from "lucide-react"
+
+import animalsDataRaw from "@/public/animals.json";
+
+interface Animal {
+  Provinsi: string;
+  "Nama Umum": string;
+  "Nama Latin": string;
+  "Taxonomy name": string;
+  Video: string;
+  "Deskripsi Singkat": string;
+}
+
+const animalsData: Animal[] = animalsDataRaw as Animal[];
 
 interface SpeciesFormProps {
   onAnalysisComplete: (species: string) => void
@@ -19,29 +31,104 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
   const [species, setSpecies] = useState("")
   const [error, setError] = useState("")
 
+  const [suggestions, setSuggestions] = useState<Animal[]>([])
+  const [showSuggestions, setShowSuggestions] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(-1); 
+
+  const formRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (formRef.current && !formRef.current.contains(event.target as Node)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setSpecies(inputValue);
+    setError("");
+
+    if (inputValue.trim().length >= 1) {
+      const filteredSuggestions = animalsData.filter(animal =>
+        animal["Taxonomy name"].toLowerCase().includes(inputValue.toLowerCase()) ||
+        animal["Nama Umum"].toLowerCase().includes(inputValue.toLowerCase())
+      );
+      setSuggestions(filteredSuggestions);
+      setShowSuggestions(filteredSuggestions.length > 0);
+      setActiveIndex(-1);
+    } else {
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleSuggestionClick = (selectedAnimal: Animal) => {
+    setSpecies(selectedAnimal["Taxonomy name"]);
+    setSuggestions([]);
+    setShowSuggestions(false);
+    setError(""); 
+  };
+  
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (showSuggestions && suggestions.length > 0) {
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        setActiveIndex((prevIndex) => (prevIndex + 1) % suggestions.length);
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        setActiveIndex((prevIndex) => (prevIndex - 1 + suggestions.length) % suggestions.length);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (activeIndex >= 0 && activeIndex < suggestions.length) {
+          handleSuggestionClick(suggestions[activeIndex]);
+        } else if (suggestions.length === 1) {
+            handleSuggestionClick(suggestions[0]);
+        } else {
+             setShowSuggestions(false);
+        }
+      } else if (e.key === "Escape") {
+        setShowSuggestions(false);
+      }
+    }
+  };
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Reset error
     setError("")
+    setShowSuggestions(false);
 
-    // Validate input
-    if (!species.trim()) {
-      setError("Please enter a valid species name.")
+    const trimmedSpecies = species.trim();
+
+    if (!trimmedSpecies) {
+      setError("Please enter a species name.")
       return
     }
-
-    if (species.trim().length < 2) {
+    if (trimmedSpecies.length < 2) {
       setError("Species name must be at least 2 characters.")
       return
     }
 
-    setIsLoading(true)
+    const isValidSpecies = animalsData.some(
+      animal => animal["Taxonomy name"].toLowerCase() === trimmedSpecies.toLowerCase()
+    );
 
-    // Simulate processing time
+    if (!isValidSpecies) {
+      setError("Invalid species. Please select a species from the suggestions or enter a known 'Taxonomy name'.");
+      return;
+    }
+
+    setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
-      onAnalysisComplete(species.trim())
+      onAnalysisComplete(trimmedSpecies)
     }, 2000)
   }
 
@@ -51,13 +138,10 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <Card className="glass-morphism border-white/30 pt-0 shadow-tropical hover:shadow-glow transition-all duration-700 overflow-hidden">
-        {/* Decorative header with batik pattern */}
+      <Card className="glass-morphism border-white/30 pt-0 shadow-tropical hover:shadow-glow transition-all duration-700">
         <div className="h-5 ocean-gradient" />
-
         <CardContent className="pt-10 pb-10 px-8 relative">
           <div className="absolute inset-0 batik-pattern opacity-10" />
-
           <motion.div
             initial={{ scale: 0.95 }}
             animate={{ scale: 1 }}
@@ -83,23 +167,53 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="space-y-4">
+              <div className="space-y-4 relative"> 
                 <Label className="text-lg font-batik font-semibold text-white flex items-center gap-2">
                   <Leaf className="h-5 w-5 text-tropical-green" />
                   Species Name
                 </Label>
-                <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+                <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }} ref={formRef}>
                   <Input
                     type="text"
-                    placeholder="e.g.: Panthera tigris sumatrae"
+                    placeholder="e.g.: Argusianus argus or Kuau Raja"
                     value={species}
-                    onChange={(e) => setSpecies(e.target.value)}
+                    onChange={handleInputChange}
+                    onFocus={() => { 
+                        if (species.trim().length >=2 && suggestions.length > 0) {
+                            setShowSuggestions(true);
+                        }
+                    }}
+                    onKeyDown={handleKeyDown}
                     className="w-full h-14 text-lg border-2 border-white/30 focus:border-batik-gold bg-white/10 backdrop-blur-sm rounded-xl text-white placeholder:text-white/60 font-tropical transition-all duration-300 focus:shadow-glow"
                     disabled={isLoading}
+                    autoComplete="off"
                   />
                 </motion.div>
+                {showSuggestions && suggestions.length > 0 && !isLoading && (
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="absolute z-20 md:max-w-7xl w-full mt-1 bg-slate-700/40 backdrop-blur-md border border-white/20 rounded-lg shadow-xl overflow-clip max-h-60 overflow-y-auto"
+                    style={{ top: "100%" }} 
+                  >
+                    {suggestions.map((animal, index) => (
+                      <li
+                        key={animal["Nama Latin"] + index}
+                        className={`px-4 py-3 text-white/90 hover:bg-amber-400/30 cursor-pointer font-tropical text-sm transition-colors duration-150 ${index === activeIndex ? "bg-batik-gold/40" : ""}`}
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            handleSuggestionClick(animal);
+                        }}
+                      >
+                        <span className="font-semibold">{animal["Taxonomy name"]}</span>
+                        <span className="text-xs text-white/70 ml-2">({animal["Nama Umum"]})</span>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
                 <p className="text-white/70 font-tropical text-sm">
-                  Enter the scientific name of the species you want to analyze.
+                  Enter the scientific name or common name to search. Select a "Taxonomy name".
                 </p>
                 {error && (
                   <motion.p
