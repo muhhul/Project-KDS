@@ -211,7 +211,7 @@ export default function Home() {
               transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
               className="mt-16"
             >
-              <Card className="glass-morphism pt-0 overflow-clip border-white/30 shadow-tropical hover:shadow-glow transition-all duration-700">
+              <Card className="glass-morphism py-0 gap-0 overflow-clip border-white/30 shadow-tropical hover:shadow-glow transition-all duration-700">
                 <CardHeader className="sunset-gradient text-white rounded-t-lg relative overflow-hidden">
                   <div className="absolute inset-0 batik-pattern opacity-20" />
                   <motion.div

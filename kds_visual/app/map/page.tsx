@@ -149,7 +149,7 @@ export default function MapPage() {
                 transition={{ delay: 0.4 }}
                 className="relative z-10 pt-5"
               >
-                <CardTitle className="text-3xl font-batik flex items-center gap-3">
+                <CardTitle className="md:text-3xl text-2xl font-batik flex items-center gap-3">
                   <motion.div
                   className="p-2 bg-white/20 rounded-full"
                   whileHover={{ rotate: 360 }}
@@ -159,7 +159,7 @@ export default function MapPage() {
                   </motion.div>
                   Interactive Biodiversity Map
                 </CardTitle>
-                <CardDescription className="text-white/90 font-tropical text-lg mt-2">
+                <CardDescription className="text-white/90 font-tropical text-sm md:text-lg mt-2">
                   Explore the distribution of species across the Indonesian archipelago
                 </CardDescription>
               </motion.div>
