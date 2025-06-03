@@ -108,7 +108,7 @@ export default function Home() {
               <Dna className="h-10 w-10 text-batik-gold" />
             </motion.div>
             <h1 className="text-3xl md:text-7xl font-batik font-bold text-white drop-shadow-lg">
-              Biodiversity Indonesia
+              SatwaNesia
             </h1>
           </motion.div>
 

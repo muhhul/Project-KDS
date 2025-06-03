@@ -18,7 +18,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Biodiversity Visualization",
+  title: "SatwaNesia",
   description:
     "Visualize biodiversity through phylogenetic trees and geographic distribution maps",
 };

@@ -162,7 +162,6 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                 </motion.div>
                 <h2 className="text-3xl font-batik font-bold text-white">Species Analysis</h2>
               </motion.div>
-              <p className="text-white/80 font-tropical">Enter a species name to generate its phylogenetic tree</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
