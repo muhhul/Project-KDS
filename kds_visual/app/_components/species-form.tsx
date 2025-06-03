@@ -192,7 +192,7 @@ export default function SpeciesForm({ onAnalysisComplete }: SpeciesFormProps) {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
-                    className="absolute z-20 md:max-w-7xl w-full mt-1 bg-slate-700/40 backdrop-blur-md border border-white/20 rounded-lg shadow-xl overflow-clip max-h-60 overflow-y-auto"
+                    className="absolute z-20 md:w-lg w-full mt-1 bg-slate-700/40 backdrop-blur-md border border-white/20 rounded-lg shadow-xl overflow-clip max-h-60 overflow-y-auto"
                     style={{ top: "100%" }} 
                   >
                     {suggestions.map((animal, index) => (

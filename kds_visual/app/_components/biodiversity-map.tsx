@@ -145,7 +145,7 @@ export default function BiodiversityMap() {
             item["Deskripsi Singkat"] || `Endemic species of ${item.Provinsi}.`,
           imageUrl: item.Image || "/placeholder.svg?height=200&width=200",
           videoUrl: item.Video !== "" ? item.Video : null,
-          conservationStatus: item["Status Konservasi"] || "Unknown",
+          conservationStatus: item.StatusKonservasi || "Unknown",
           habitat: item.Habitat || "Various habitats",
           taxonomy: item["Taxonomy name"] || "N/A",
         };
