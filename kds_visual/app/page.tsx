@@ -238,7 +238,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div variants={itemVariants} className="text-center">
+          <motion.div variants={itemVariants} className="text-center mb-14">
             <motion.div
               className="inline-flex items-center gap-3 mb-4"
               whileHover={{ scale: 1.05 }}
