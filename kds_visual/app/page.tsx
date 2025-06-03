@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import SpeciesForm from "@/app/_components/species-form";
 import PhylogeneticTree from "@/app/_components/phylogenetic-tree";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -88,14 +89,14 @@ export default function Home() {
       </div>
 
       <motion.div
-        className="container mx-auto px-4 py-12 relative z-10"
+        className="container mx-auto px-4 py-12 relative z-10 gap-10 flex flex-col"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center">
           <motion.div
-            className="inline-flex items-center gap-3 mb-6"
+            className="inline-flex items-center gap-3 mb-5"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -106,16 +107,13 @@ export default function Home() {
             >
               <Dna className="h-10 w-10 text-batik-gold" />
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-batik font-bold text-white drop-shadow-lg">
-              Biodiversity
-              <span className="block text-3xl md:text-4xl font-tropical font-normal text-warm-cream/90 mt-2">
-                Indonesia
-              </span>
+            <h1 className="text-3xl md:text-7xl font-batik font-bold text-white drop-shadow-lg">
+              Biodiversity Indonesia
             </h1>
           </motion.div>
 
           <motion.p
-            className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-tropical mb-8"
+            className="text-sm md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed font-tropical"
             variants={itemVariants}
           >
             Explore Indonesia's rich biodiversity through interactive
@@ -125,77 +123,32 @@ export default function Home() {
 
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="w-full justify-center items-center flex"
         >
-          {[
-            {
-              id: "1",
-              icon: Dna,
-              title: "Phylogenetic Analysis",
-              description: "Evolutionary relationships among species analysis",
-              href: "#analysis",
-              gradient: "from-batik-gold to-sunset-orange",
-              iconBg: "bg-amber-400/20",
-            },
-            {
-              id: "2",
-              icon: MapPin,
-              title: "Biodiversity Map",
-              description:
-                "Explore the distribution of species across the archipelago",
-              href: "/map",
-              gradient: "from-ocean-blue to-deep-teal",
-              iconBg: "bg-blue-400/20",
-            },
-            {
-              id: "3",
-              icon: Leaf,
-              title: "Species Database",
-              description: "Collection of endemic species data in Indonesia",
-              href: "#database",
-              gradient: "from-tropical-green to-batik-brown",
-              iconBg: "bg-green-400/20",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={item.id + index}
-              whileHover={item.id === "2" ? { y: -8, scale: 1.02 } : {}}
-              whileTap={item.id === "2" ? { scale: 0.98 } : {}}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="group"
-            >
-              <Link
-                href={item.href}
-                className={`${item.id !== "2" ? "cursor-default" : ""}`}
-                onClick={(e) => {
-                  if (item.id !== "2") {
-                    e.preventDefault();
-                  }
-                }}
-                aria-disabled={item.id !== "2"}
-                tabIndex={item.id !== "2" ? -1 : undefined}
-              >
-                <Card className="glass-morphism border-white/30 h-full hover:border-white/50 transition-all duration-500 overflow-hidden">
-                  <CardContent className="p-8 text-center">
-                    <motion.div
-                      className={`inline-flex items-center justify-center w-16 h-16 ${item.iconBg} backdrop-blur-sm rounded-full mb-4 group-hover:scale-110 transition-transform duration-300`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.8 }}
-                    >
-                      <item.icon className="h-8 w-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-xl font-batik font-semibold text-white mb-1">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-white/80 font-tropical leading-relaxed">
-                      {item.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
+          <motion.div
+            whileHover={{ y: -8, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="group w-fit"
+          >
+            <Link href={"/map"}>
+              <Card className="glass-morphism border-white/30 h-full p-0 hover:border-white/50 transition-all duration-500 overflow-hidden">
+                <CardContent className="p-3 px-7 text-center flex flex-row justify-center items-center gap-5 ">
+                  <motion.div
+                    className={`inline-flex items-center justify-center w-8 h-8 bg-blue-400/20 backdrop-blur-sm rounded-full group-hover:scale-110 transition-transform duration-300`}
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    <MapPin className="h-4 w-4 text-white" />
+                  </motion.div>
+                  <p className="text-white/80 font-tropical leading-relaxed">
+                    Explore Species Distribution Map
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          </motion.div>
+          {/* Quick Access to Map */}
         </motion.div>
 
         <motion.div variants={itemVariants} id="analysis">
@@ -220,7 +173,7 @@ export default function Home() {
                     transition={{ delay: 0.3 }}
                     className="relative z-10 pt-5"
                   >
-                    <CardTitle className="text-3xl font-batik flex items-center gap-3">
+                    <CardTitle className="text-3xl font-batik flex items-start gap-3">
                       <motion.div
                         className="p-2 bg-white/20 rounded-full"
                         whileHover={{ rotate: 180 }}
@@ -228,11 +181,14 @@ export default function Home() {
                       >
                         <Leaf className="h-8 w-8" />
                       </motion.div>
-                      Phylogenetic Tree: {speciesName}
+                      <div>
+                        Phylogenetic Tree: {speciesName}
+                        <div className="text-white/90 font-tropical text-lg mt-2">
+                          Visualization of genetic relationships between species
+                        </div>
+                      </div>
                     </CardTitle>
-                    <CardDescription className="text-white/90 font-tropical text-lg mt-2">
-                      Visualization of genetic relationships between species
-                    </CardDescription>
+                    <CardDescription className=""></CardDescription>
                   </motion.div>
                 </CardHeader>
                 <CardContent className="h-[600px] relative p-0">
@@ -243,7 +199,7 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        <motion.div variants={itemVariants} className="mt-20 text-center">
+        <motion.div variants={itemVariants} className="text-center">
           <motion.div
             className="inline-flex items-center gap-2 text-white/80 font-tropical"
             whileHover={{ scale: 1.05 }}
