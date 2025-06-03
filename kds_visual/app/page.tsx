@@ -205,7 +205,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
           >
             <Sun className="h-5 w-5 animate-wave" />
-            <span>Melestarikan Kekayaan Alam Nusantara</span>
+            <span>Preserving the Natural Heritage of the Archipelago</span>
             <Sun
               className="h-5 w-5 animate-wave"
               style={{ animationDelay: "1s" }}
