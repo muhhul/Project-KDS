@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="h-screen relative overflow-hidden">
+      <main className="min-h-screen relative overflow-hidden">
         <div className="absolute inset-0 tropical-gradient">
           <div className="absolute inset-0 batik-pattern opacity-30" />
         </div>
@@ -302,7 +302,7 @@ export default function Home() {
                 transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
                 className="flex-1 min-h-0"
               >
-                <Card className="glass-morphism h-full overflow-hidden border-white/30 shadow-tropical hover:shadow-glow transition-all duration-700">
+                <Card className="glass-morphism h-full overflow-hidden border-white/30 shadow-tropical gap-0 p-0 hover:shadow-glow transition-all duration-700">
                   <CardHeader className="sunset-gradient text-white relative overflow-hidden py-4">
                     <div className="absolute inset-0 batik-pattern opacity-20" />
                     <motion.div
@@ -328,7 +328,7 @@ export default function Home() {
                       </CardTitle>
                     </motion.div>
                   </CardHeader>
-                  <CardContent className="flex-1 p-0 h-[400px]">
+                  <CardContent className="p-0 h-[400px]">
                     <PhylogeneticTree speciesName={speciesName} />
                   </CardContent>
                 </Card>
